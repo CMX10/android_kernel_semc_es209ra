@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # Linux kernel version: 2.6.29
-# Tue Nov 27 11:10:14 2012
+# Fri Dec  7 18:46:55 2012
 #
 CONFIG_ARM=y
 CONFIG_SYS_SUPPORTS_APM_EMULATION=y
@@ -1750,6 +1750,7 @@ CONFIG_ANDROID_TIMED_OUTPUT=y
 CONFIG_ANDROID_LOW_MEMORY_KILLER=y
 CONFIG_RAMZSWAP=y
 CONFIG_RAMZSWAP_STATS=y
+CONFIG_ZRAM=y
 
 #
 # File systems
