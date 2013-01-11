@@ -625,7 +625,7 @@ void inotify_destroy(struct inotify_handle *ih)
 	while (1) {
 		struct inotify_watch *watch;
 		struct list_head *watches;
-		struct super_block *sb;
+		__attribute__((unused)) struct super_block *sb;
 		struct inode *inode;
 		int how;
 
@@ -854,7 +854,7 @@ void inotify_evict_watch(struct inotify_watch *watch)
 int inotify_rm_wd(struct inotify_handle *ih, u32 wd)
 {
 	struct inotify_watch *watch;
-	struct super_block *sb;
+	__attribute__((unused)) struct super_block *sb;
 	struct inode *inode;
 	int how;
 

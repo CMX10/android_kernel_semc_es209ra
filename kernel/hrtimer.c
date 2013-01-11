@@ -1020,7 +1020,7 @@ EXPORT_SYMBOL_GPL(hrtimer_cancel);
  */
 ktime_t hrtimer_get_remaining(const struct hrtimer *timer)
 {
-	struct hrtimer_clock_base *base;
+	__attribute__((unused)) struct hrtimer_clock_base *base;
 	unsigned long flags;
 	ktime_t rem;
 
@@ -1196,8 +1196,8 @@ void hrtimer_interrupt(struct clock_event_device *dev)
 {
 	struct hrtimer_cpu_base *cpu_base = &__get_cpu_var(hrtimer_bases);
 	struct hrtimer_clock_base *base;
-	ktime_t expires_next, now;
-	int nr_retries = 0;
+    ktime_t expires_next, now = {0};
+    int nr_retries = 0;
 	int i;
 
 	BUG_ON(!cpu_base->hres_active);

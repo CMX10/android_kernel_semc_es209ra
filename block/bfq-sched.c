@@ -334,7 +334,7 @@ static bfq_weight_t bfq_ioprio_to_weight(int ioprio)
 static inline void bfq_get_entity(struct bfq_entity *entity)
 {
 	struct bfq_queue *bfqq = bfq_entity_to_bfqq(entity);
-	struct bfq_sched_data *sd;
+	__attribute__((unused)) struct bfq_sched_data *sd;
 
 	if (bfqq != NULL) {
 		sd = entity->sched_data;
@@ -429,7 +429,7 @@ static void bfq_forget_entity(struct bfq_service_tree *st,
 			      struct bfq_entity *entity)
 {
 	struct bfq_queue *bfqq = bfq_entity_to_bfqq(entity);
-	struct bfq_sched_data *sd;
+	__attribute__((unused)) struct bfq_sched_data *sd;
 
 	BUG_ON(!entity->on_st);
 

@@ -171,7 +171,8 @@ void
 kgsl_process_init_sysfs(struct kgsl_process_private *private)
 {
 	unsigned char name[16];
-	int i, ret;
+	int i;
+    __attribute__((unused)) int ret;
 
 	snprintf(name, sizeof(name), "%d", private->pid);
 

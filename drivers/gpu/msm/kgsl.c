@@ -2085,7 +2085,7 @@ kgsl_register_device(struct kgsl_device *device)
 	device->dev = device_create(kgsl_driver.class,
 				    device->parentdev,
 				    dev, device,
-				    device->name);
+				    "%s", device->name);
 
 	if (IS_ERR(device->dev)) {
 		ret = PTR_ERR(device->dev);

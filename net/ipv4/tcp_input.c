@@ -3181,7 +3181,7 @@ static int tcp_clean_rtx_queue(struct sock *sk, int prior_fackets,
 
 	while ((skb = tcp_write_queue_head(sk)) && skb != tcp_send_head(sk)) {
 		struct tcp_skb_cb *scb = TCP_SKB_CB(skb);
-		u32 end_seq;
+		__attribute__((unused)) u32 end_seq;
 		u32 acked_pcount;
 		u8 sacked = scb->sacked;
 

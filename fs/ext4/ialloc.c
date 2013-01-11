@@ -691,7 +691,7 @@ struct inode *ext4_new_inode(handle_t *handle, struct inode *dir, int mode)
 	unsigned long ino = 0;
 	struct inode *inode;
 	struct ext4_group_desc *gdp = NULL;
-	struct ext4_super_block *es;
+	__attribute__((unused)) struct ext4_super_block *es;
 	struct ext4_inode_info *ei;
 	struct ext4_sb_info *sbi;
 	int ret2, err = 0;

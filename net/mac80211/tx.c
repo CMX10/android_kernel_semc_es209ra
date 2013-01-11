@@ -866,7 +866,7 @@ __ieee80211_parse_tx_radiotap(struct ieee80211_tx_data *tx,
 	struct ieee80211_radiotap_iterator iterator;
 	struct ieee80211_radiotap_header *rthdr =
 		(struct ieee80211_radiotap_header *) skb->data;
-	struct ieee80211_supported_band *sband;
+	__attribute__((unused)) struct ieee80211_supported_band *sband;
 	int ret = ieee80211_radiotap_iterator_init(&iterator, rthdr, skb->len);
 
 	sband = tx->local->hw.wiphy->bands[tx->channel->band];
@@ -948,7 +948,7 @@ __ieee80211_tx_prepare(struct ieee80211_tx_data *tx,
 {
 	struct ieee80211_local *local = wdev_priv(dev->ieee80211_ptr);
 	struct ieee80211_hdr *hdr;
-	struct ieee80211_sub_if_data *sdata;
+	__attribute__((unused)) struct ieee80211_sub_if_data *sdata;
 	struct ieee80211_tx_info *info = IEEE80211_SKB_CB(skb);
 
 	int hdrlen, tid;
@@ -1137,7 +1137,6 @@ static int invoke_tx_handlers(struct ieee80211_tx_data *tx)
 static int ieee80211_tx(struct net_device *dev, struct sk_buff *skb)
 {
 	struct ieee80211_local *local = wdev_priv(dev->ieee80211_ptr);
-	struct sta_info *sta;
 	struct ieee80211_tx_data tx;
 	ieee80211_tx_result res_prepare;
 	struct ieee80211_tx_info *info = IEEE80211_SKB_CB(skb);
@@ -1164,7 +1163,6 @@ static int ieee80211_tx(struct net_device *dev, struct sk_buff *skb)
 		return 0;
 	}
 
-	sta = tx.sta;
 	tx.channel = local->hw.conf.channel;
 	info->band = tx.channel->band;
 
@@ -1869,10 +1867,8 @@ struct sk_buff *ieee80211_beacon_get(struct ieee80211_hw *hw,
 	struct ieee80211_if_ap *ap = NULL;
 	struct ieee80211_if_sta *ifsta = NULL;
 	struct beacon_data *beacon;
-	struct ieee80211_supported_band *sband;
 	enum ieee80211_band band = local->hw.conf.channel->band;
 
-	sband = local->hw.wiphy->bands[band];
 
 	rcu_read_lock();
 
@@ -2029,7 +2025,7 @@ ieee80211_get_buffered_bc(struct ieee80211_hw *hw,
 {
 	struct ieee80211_local *local = hw_to_local(hw);
 	struct sk_buff *skb = NULL;
-	struct sta_info *sta;
+	__attribute__((unused)) struct sta_info *sta;
 	struct ieee80211_tx_data tx;
 	struct ieee80211_sub_if_data *sdata;
 	struct ieee80211_if_ap *bss = NULL;

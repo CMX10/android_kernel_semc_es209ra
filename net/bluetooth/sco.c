@@ -726,7 +726,8 @@ static int sco_sock_getsockopt_old(struct socket *sock, int optname, char __user
 static int sco_sock_getsockopt(struct socket *sock, int level, int optname, char __user *optval, int __user *optlen)
 {
 	struct sock *sk = sock->sk;
-	int len, err = 0;
+	__attribute__((unused)) int len;
+    int err = 0;
 
 	BT_DBG("sk %p", sk);
 

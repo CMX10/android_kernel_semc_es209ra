@@ -849,7 +849,7 @@ static int yaffs_CheckChunkErased(struct yaffs_DeviceStruct *dev,
 	int retval = YAFFS_OK;
 	__u8 *data = yaffs_GetTempBuffer(dev, __LINE__);
 	yaffs_ExtendedTags tags;
-	int result;
+	__attribute__((unused)) int result;
 
 	result = yaffs_ReadChunkWithTagsFromNAND(dev, chunkInNAND, data, &tags);
 
@@ -3546,7 +3546,7 @@ int yaffs_UpdateObjectHeader(yaffs_Object *in, const YCHAR *name, int force,
 
 	int prevChunkId;
 	int retVal = 0;
-	int result = 0;
+	__attribute__((unused)) int result = 0;
 
 	int newChunkId;
 	yaffs_ExtendedTags newTags;
@@ -3838,7 +3838,7 @@ static yaffs_ChunkCache *yaffs_GrabChunkCache(yaffs_Device *dev)
 	yaffs_Object *theObj;
 	int usage;
 	int i;
-	int pushout;
+	__attribute__((unused)) int pushout;
 
 	if (dev->nShortOpCaches > 0) {
 		/* Try find a non-dirty one... */
@@ -5447,7 +5447,7 @@ static int yaffs_Scan(yaffs_Device *dev)
 	int blockIterator;
 	int startIterator;
 	int endIterator;
-	int result;
+	__attribute__((unused)) int result;
 
 	int chunk;
 	int c;
@@ -5885,8 +5885,8 @@ static void yaffs_CheckObjectDetailsLoaded(yaffs_Object *in)
 	yaffs_ObjectHeader *oh;
 	yaffs_Device *dev;
 	yaffs_ExtendedTags tags;
-	int result;
-	int alloc_failed = 0;
+	__attribute__((unused)) int result;
+	__attribute__((unused)) int alloc_failed = 0;
 
 	if (!in)
 		return;
@@ -5946,9 +5946,9 @@ static int yaffs_ScanBackwards(yaffs_Device *dev)
 	int nBlocksToScan = 0;
 
 	int chunk;
-	int result;
+	__attribute__((unused)) int result;
 	int c;
-	int deleted;
+	__attribute__((unused)) int deleted;
 	yaffs_BlockState state;
 	yaffs_Object *hardList = NULL;
 	yaffs_BlockInfo *bi;
@@ -6904,7 +6904,7 @@ int yaffs_GetObjectName(yaffs_Object *obj, YCHAR *name, int buffSize)
 		yaffs_strcpy(name, obj->shortName);
 #endif
 	else {
-		int result;
+		__attribute__((unused)) int result;
 		__u8 *buffer = yaffs_GetTempBuffer(obj->myDev, __LINE__);
 
 		yaffs_ObjectHeader *oh = (yaffs_ObjectHeader *) buffer;

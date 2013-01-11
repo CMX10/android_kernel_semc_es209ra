@@ -35,7 +35,8 @@ sctp_manip_pkt(struct sk_buff *skb,
 	const struct iphdr *iph = (struct iphdr *)(skb->data + iphdroff);
 	sctp_sctphdr_t *hdr;
 	unsigned int hdroff = iphdroff + iph->ihl*4;
-	__be32 oldip, newip;
+	__attribute__((unused)) __be32 oldip;
+    __attribute__((unused)) __be32 newip;
 	__be32 crc32;
 
 	if (!skb_make_writable(skb, hdroff + sizeof(*hdr)))

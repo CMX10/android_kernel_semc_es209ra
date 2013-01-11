@@ -1486,7 +1486,6 @@ static int msm_stats_axi_cfg(struct msm_sync *sync,
 {
 	int rc = -EIO;
 	struct axidata axi_data;
-	void *data = &axi_data;
 
 	struct msm_pmem_region region[3];
 	int pmem_type = MSM_PMEM_MAX;
@@ -1501,7 +1500,6 @@ static int msm_stats_axi_cfg(struct msm_sync *sync,
 		pmem_type = MSM_PMEM_AF;
 		break;
 	case CMD_GENERAL:
-		data = NULL;
 		break;
 	default:
 		pr_err("%s: unknown command type %d\n",

@@ -624,7 +624,7 @@ static struct Qdisc *dev_graft_qdisc(struct netdev_queue *dev_queue,
 	if (qdisc == NULL)
 		qdisc = &noop_qdisc;
 	dev_queue->qdisc_sleeping = qdisc;
-	rcu_assign_pointer(dev_queue->qdisc, &noop_qdisc);
+	rcu_assign_pointer_true(dev_queue->qdisc, &noop_qdisc);
 
 	spin_unlock_bh(root_lock);
 
@@ -1617,7 +1617,7 @@ int tc_classify(struct sk_buff *skb, struct tcf_proto *tp,
 		struct tcf_result *res)
 {
 	int err = 0;
-	__be16 protocol;
+	__attribute__((unused)) __be16 protocol;
 #ifdef CONFIG_NET_CLS_ACT
 	struct tcf_proto *otp = tp;
 reclassify:

@@ -610,7 +610,8 @@ static int already_uses(struct module *a, struct module *b)
 static int use_module(struct module *a, struct module *b)
 {
 	struct module_use *use;
-	int no_warn, err;
+	__attribute__((unused)) int no_warn;
+    int err;
 
 	if (b == NULL || already_uses(a, b)) return 1;
 
@@ -1500,7 +1501,7 @@ EXPORT_SYMBOL_GPL(__symbol_get);
 static int verify_export_symbols(struct module *mod)
 {
 	unsigned int i;
-	struct module *owner;
+	struct module *owner = NULL;
 	const struct kernel_symbol *s;
 	struct {
 		const struct kernel_symbol *sym;

@@ -123,7 +123,7 @@ static inline void bma150_i2c_delay(unsigned int msec)
 /*	i2c write routine for bma150	*/
 static inline char bma150_i2c_write(unsigned char reg_addr, unsigned char *data, unsigned char len)
 {
-	int dummy;
+	__attribute__((unused)) int dummy;
 	if( bma150_client == NULL )
 		return -1;
 	dummy = i2c_smbus_write_byte_data(bma150_client, reg_addr, data[0]);
@@ -135,7 +135,7 @@ static inline char bma150_i2c_read(unsigned char reg_addr,
 				   unsigned char *data,
 				   unsigned char len)
 {
-	int dummy=0;
+	__attribute__((unused)) int dummy=0;
 
 	if( bma150_client == NULL )
 		return -1;

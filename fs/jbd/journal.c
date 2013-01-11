@@ -1223,7 +1223,7 @@ int journal_check_used_features (journal_t *journal, unsigned long compat,
 int journal_check_available_features (journal_t *journal, unsigned long compat,
 				      unsigned long ro, unsigned long incompat)
 {
-	journal_superblock_t *sb;
+	__attribute__((unused)) journal_superblock_t *sb;
 
 	if (!compat && !ro && !incompat)
 		return 1;
@@ -1423,7 +1423,7 @@ int journal_flush(journal_t *journal)
 
 int journal_wipe(journal_t *journal, int write)
 {
-	journal_superblock_t *sb;
+	__attribute__((unused)) journal_superblock_t *sb;
 	int err = 0;
 
 	J_ASSERT (!(journal->j_flags & JFS_LOADED));

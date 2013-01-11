@@ -327,7 +327,7 @@ int nandmtd1_QueryNANDBlock(struct yaffs_DeviceStruct *dev, int blockNo,
 	yaffs_ExtendedTags etags;
 	int state = YAFFS_BLOCK_STATE_DEAD;
 	int seqnum = 0;
-	int retval;
+	__attribute__((unused)) int retval;
 
 	/* We don't yet have a good place to test for MTD config prerequists.
 	 * Do it here as we are called during the initial scan.

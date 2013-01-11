@@ -30,7 +30,7 @@ static enum {
 /* tell userspace to stop drawing, wait for it to stop */
 static void stop_drawing_early_suspend(struct early_suspend *h)
 {
-	int ret;
+	__attribute__((unused)) int ret;
 	unsigned long irq_flags;
 
 	spin_lock_irqsave(&fb_state_lock, irq_flags);

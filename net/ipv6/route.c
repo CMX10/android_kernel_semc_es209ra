@@ -1012,7 +1012,8 @@ out:
 
 int icmp6_dst_gc(void)
 {
-	struct dst_entry *dst, *next, **pprev;
+	struct dst_entry *dst, **pprev;
+    __attribute__((unused)) struct dst_entry *next; 
 	int more = 0;
 
 	next = NULL;

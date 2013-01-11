@@ -8366,7 +8366,8 @@ static void init_tg_rt_entry(struct task_group *tg, struct rt_rq *rt_rq,
 void __init sched_init(void)
 {
 	int i, j;
-	unsigned long alloc_size = 0, ptr;
+	unsigned long alloc_size = 0;
+     __attribute__((unused)) unsigned long ptr;
 
 #ifdef CONFIG_FAIR_GROUP_SCHED
 	alloc_size += 2 * nr_cpu_ids * sizeof(void **);

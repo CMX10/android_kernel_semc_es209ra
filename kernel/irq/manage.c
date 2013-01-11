@@ -392,7 +392,7 @@ static int
 __setup_irq(unsigned int irq, struct irq_desc * desc, struct irqaction *new)
 {
 	struct irqaction *old, **p;
-	const char *old_name = NULL;
+	__attribute__((unused)) const char *old_name = NULL;
 	unsigned long flags;
 	int shared = 0;
 	int ret;

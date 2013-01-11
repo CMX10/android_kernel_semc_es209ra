@@ -466,7 +466,7 @@ int ieee80211_start_tx_ba_session(struct ieee80211_hw *hw, u8 *ra, u16 tid)
 {
 	struct ieee80211_local *local = hw_to_local(hw);
 	struct sta_info *sta;
-	struct ieee80211_sub_if_data *sdata;
+	__attribute__((unused)) struct ieee80211_sub_if_data *sdata;
 	u16 start_seq_num;
 	u8 *state;
 	int ret = 0;

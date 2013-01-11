@@ -54,7 +54,8 @@ void ieee80211_aes_ccm_encrypt(struct crypto_cipher *tfm, u8 *scratch,
 			       u8 *cdata, u8 *mic)
 {
 	int i, j, last_len, num_blocks;
-	u8 *pos, *cpos, *b, *s_0, *e, *b_0, *aad;
+	u8 *pos, *cpos, *b, *s_0, *e, *b_0;
+    __attribute__((unused)) u8 *aad;
 
 	b = scratch;
 	s_0 = scratch + AES_BLOCK_LEN;
@@ -94,7 +95,8 @@ int ieee80211_aes_ccm_decrypt(struct crypto_cipher *tfm, u8 *scratch,
 			      u8 *cdata, size_t data_len, u8 *mic, u8 *data)
 {
 	int i, j, last_len, num_blocks;
-	u8 *pos, *cpos, *b, *s_0, *a, *b_0, *aad;
+	u8 *pos, *cpos, *b, *s_0, *a, *b_0;
+    __attribute__((unused)) u8 *aad;
 
 	b = scratch;
 	s_0 = scratch + AES_BLOCK_LEN;

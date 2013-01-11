@@ -19,6 +19,8 @@ enum ip_conntrack_info
 	/* >= this indicates reply direction */
 	IP_CT_IS_REPLY,
 
+    DUMMY_FOR_LINARO, 
+
 	/* Number of distinct IP_CT types (no NEW in reply dirn). */
 	IP_CT_NUMBER = IP_CT_IS_REPLY * 2 - 1
 };

@@ -644,7 +644,7 @@ int q6audio_read(struct audio_client *ac, struct audio_buffer *ab)
 {
 	struct adsp_buffer_command rpc;
 	uint32_t res;
-	int r;
+	__attribute__((unused)) int r;
 
 	memset(&rpc, 0, sizeof(rpc));
 	rpc.hdr.size = sizeof(rpc) - sizeof(u32);
@@ -666,7 +666,7 @@ int q6audio_write(struct audio_client *ac, struct audio_buffer *ab)
 {
 	struct adsp_buffer_command rpc;
 	uint32_t res;
-	int r;
+	__attribute__((unused)) int r;
 
 	memset(&rpc, 0, sizeof(rpc));
 	rpc.hdr.size = sizeof(rpc) - sizeof(u32);

@@ -805,7 +805,7 @@ ieee80211_reassemble_add(struct ieee80211_sub_if_data *sdata,
 			 struct sk_buff **skb)
 {
 	struct ieee80211_fragment_entry *entry;
-	int idx;
+	__attribute__((unused)) int idx;
 
 	idx = sdata->fragment_next;
 	entry = &sdata->fragments[sdata->fragment_next++];

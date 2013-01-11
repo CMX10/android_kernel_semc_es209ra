@@ -536,7 +536,7 @@ static void sta_info_cleanup_expire_buffered(struct ieee80211_local *local,
 {
 	unsigned long flags;
 	struct sk_buff *skb;
-	struct ieee80211_sub_if_data *sdata;
+	__attribute__((unused)) struct ieee80211_sub_if_data *sdata;
 
 	if (skb_queue_empty(&sta->ps_tx_buf))
 		return;

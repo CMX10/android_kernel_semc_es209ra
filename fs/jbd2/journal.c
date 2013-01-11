@@ -1526,7 +1526,7 @@ int jbd2_journal_check_used_features (journal_t *journal, unsigned long compat,
 int jbd2_journal_check_available_features (journal_t *journal, unsigned long compat,
 				      unsigned long ro, unsigned long incompat)
 {
-	journal_superblock_t *sb;
+	__attribute__((unused)) journal_superblock_t *sb;
 
 	if (!compat && !ro && !incompat)
 		return 1;
@@ -1752,7 +1752,7 @@ int jbd2_journal_flush(journal_t *journal)
 
 int jbd2_journal_wipe(journal_t *journal, int write)
 {
-	journal_superblock_t *sb;
+	__attribute__((unused)) journal_superblock_t *sb;
 	int err = 0;
 
 	J_ASSERT (!(journal->j_flags & JBD2_LOADED));
@@ -2215,7 +2215,7 @@ void jbd2_journal_init_jbd_inode(struct jbd2_inode *jinode, struct inode *inode)
 void jbd2_journal_release_jbd_inode(journal_t *journal,
 				    struct jbd2_inode *jinode)
 {
-	int writeout = 0;
+	__attribute__((unused)) int writeout = 0;
 
 	if (!journal)
 		return;

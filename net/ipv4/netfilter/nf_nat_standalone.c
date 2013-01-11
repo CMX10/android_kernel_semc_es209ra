@@ -289,8 +289,8 @@ static int __init nf_nat_standalone_init(void)
 	need_ipv4_conntrack();
 
 #ifdef CONFIG_XFRM
-	BUG_ON(ip_nat_decode_session != NULL);
-	rcu_assign_pointer(ip_nat_decode_session, nat_decode_session);
+	//BUG_ON(ip_nat_decode_session != NULL);
+	rcu_assign_pointer_true(ip_nat_decode_session, nat_decode_session);
 #endif
 	ret = nf_nat_rule_init();
 	if (ret < 0) {

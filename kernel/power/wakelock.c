@@ -122,7 +122,7 @@ static int wakelock_stats_show(struct seq_file *m, void *unused)
 {
 	unsigned long irqflags;
 	struct wake_lock *lock;
-	int ret;
+	__attribute__((unused)) int ret;
 	int type;
 
 	spin_lock_irqsave(&list_lock, irqflags);

@@ -919,7 +919,7 @@ static int ext4_ext_grow_indepth(handle_t *handle, struct inode *inode,
 {
 	struct ext4_ext_path *curp = path;
 	struct ext4_extent_header *neh;
-	struct ext4_extent_idx *fidx;
+	__attribute__((unused)) struct ext4_extent_idx *fidx;
 	struct buffer_head *bh;
 	ext4_fsblk_t newblock;
 	int err = 0;
@@ -1867,7 +1867,7 @@ int ext4_ext_calc_credits_for_single_extent(struct inode *inode, int nrblocks,
 {
 	if (path) {
 		int depth = ext_depth(inode);
-		int ret = 0;
+		__attribute__((unused)) int ret = 0;
 
 		/* probably there is space in leaf? */
 		if (le16_to_cpu(path[depth].p_hdr->eh_entries)
@@ -2681,7 +2681,7 @@ int ext4_ext_get_blocks(handle_t *handle, struct inode *inode,
 			int create, int extend_disksize)
 {
 	struct ext4_ext_path *path = NULL;
-	struct ext4_extent_header *eh;
+	__attribute__((unused)) struct ext4_extent_header *eh;
 	struct ext4_extent newex, *ex;
 	ext4_fsblk_t newblock;
 	int err = 0, depth, ret, cache_type;

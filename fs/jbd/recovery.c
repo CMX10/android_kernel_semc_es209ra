@@ -284,7 +284,7 @@ int journal_recover(journal_t *journal)
 int journal_skip_recovery(journal_t *journal)
 {
 	int			err;
-	journal_superblock_t *	sb;
+	__attribute__((unused)) journal_superblock_t *	sb;
 
 	struct recovery_info	info;
 
@@ -323,7 +323,7 @@ static int do_one_pass(journal_t *journal,
 	int			blocktype;
 
 	/* Precompute the maximum metadata descriptors in a descriptor block */
-	int			MAX_BLOCKS_PER_DESC;
+	__attribute__((unused)) int			MAX_BLOCKS_PER_DESC;
 	MAX_BLOCKS_PER_DESC = ((journal->j_blocksize-sizeof(journal_header_t))
 			       / sizeof(journal_block_tag_t));
 

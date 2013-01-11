@@ -675,7 +675,7 @@ ctnetlink_parse_tuple(struct nlattr *cda[], struct nf_conntrack_tuple *tuple,
 		return err;
 
 	/* orig and expect tuples get DIR_ORIGINAL */
-	if (type == CTA_TUPLE_REPLY)
+	if (type == /*CTA_TUPLE_REPLY*/CTA_TUPLE_PROTO)
 		tuple->dst.dir = IP_CT_DIR_REPLY;
 	else
 		tuple->dst.dir = IP_CT_DIR_ORIGINAL;

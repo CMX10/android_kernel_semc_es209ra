@@ -99,7 +99,8 @@ ip6t_local_out_hook(unsigned int hook,
 	unsigned int ret;
 	struct in6_addr saddr, daddr;
 	u_int8_t hop_limit;
-	u_int32_t flowlabel, mark;
+	__attribute__((unused)) u_int32_t flowlabel;
+    u_int32_t mark;
 
 #if 0
 	/* root is playing with raw sockets. */

@@ -1539,7 +1539,7 @@ static void get_markers(struct elf_info *info, struct module *mod)
 			const char *name = strings + sym->st_value;
 			const char *fmt = strchr(name, '\0') + 1;
 			char *line = NULL;
-			asprintf(&line, "%s\t%s\t%s\n", name, mod->name, fmt);
+			(void)asprintf(&line, "%s\t%s\t%s\n", name, mod->name, fmt);
 			NOFAIL(line);
 			mod->markers[n++] = line;
 		}

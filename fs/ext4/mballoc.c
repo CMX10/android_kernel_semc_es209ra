@@ -3141,8 +3141,10 @@ ext4_mb_normalize_request(struct ext4_allocation_context *ac,
 {
 	int bsbits, max;
 	ext4_lblk_t end;
-	loff_t size, orig_size, start_off;
-	ext4_lblk_t start, orig_start;
+	loff_t size, start_off;
+    __attribute__((unused)) loff_t orig_size;
+	__attribute__((unused)) ext4_lblk_t start;
+    __attribute__((unused)) ext4_lblk_t orig_start;
 	struct ext4_inode_info *ei = EXT4_I(ac->ac_inode);
 	struct ext4_prealloc_space *pa;
 
@@ -3823,7 +3825,7 @@ ext4_mb_release_inode_pa(struct ext4_buddy *e4b, struct buffer_head *bitmap_bh,
 	ext4_group_t group;
 	ext4_grpblk_t bit;
 	unsigned long long grp_blk_start;
-	sector_t start;
+	__attribute__((unused)) sector_t start;
 	int err = 0;
 	int free = 0;
 

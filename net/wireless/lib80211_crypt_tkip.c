@@ -314,7 +314,7 @@ static int lib80211_tkip_hdr(struct sk_buff *skb, int hdr_len,
 			      u8 * rc4key, int keylen, void *priv)
 {
 	struct lib80211_tkip_data *tkey = priv;
-	int len;
+	__attribute__((unused)) int len;
 	u8 *pos;
 	struct ieee80211_hdr *hdr;
 

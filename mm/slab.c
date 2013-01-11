@@ -4023,7 +4023,7 @@ static void cache_reap(struct work_struct *w)
 		if (l3->free_touched)
 			l3->free_touched = 0;
 		else {
-			int freed;
+			__attribute__((unused)) int freed;
 
 			freed = drain_freelist(searchp, l3, (l3->free_limit +
 				5 * searchp->num - 1) / (5 * searchp->num));

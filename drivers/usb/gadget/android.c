@@ -680,7 +680,7 @@ static int android_init_functions(struct android_usb_function **functions,
 	for (; (f = *functions++); index++) {
 		f->dev_name = kasprintf(GFP_KERNEL, "f_%s", f->name);
 		f->dev = device_create(android_class, dev->dev,
-				MKDEV(0, index), f, f->dev_name);
+				MKDEV(0, index), f, "%s", f->dev_name);
 		if (IS_ERR(f->dev)) {
 			pr_err("%s: Failed to create dev %s", __func__,
 							f->dev_name);

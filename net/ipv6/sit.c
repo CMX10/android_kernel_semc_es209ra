@@ -330,7 +330,7 @@ static int
 ipip6_tunnel_del_prl(struct ip_tunnel *t, struct ip_tunnel_prl *a)
 {
 	struct ip_tunnel_prl_entry *x, **p;
-	int err = 0;
+	__attribute__((unused)) int err = 0;
 
 	write_lock(&ipip6_lock);
 

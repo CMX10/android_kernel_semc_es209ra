@@ -42,7 +42,8 @@ adjust_tcp_sequence(u32 seq,
 		    enum ip_conntrack_info ctinfo)
 {
 	int dir;
-	struct nf_nat_seq *this_way, *other_way;
+	struct nf_nat_seq *this_way;
+    __attribute__((unused)) struct nf_nat_seq *other_way;
 	struct nf_conn_nat *nat = nfct_nat(ct);
 
 	pr_debug("adjust_tcp_sequence: seq = %u, sizediff = %d\n", seq, seq);

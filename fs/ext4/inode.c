@@ -2640,7 +2640,8 @@ static int ext4_da_write_begin(struct file *file, struct address_space *mapping,
 	int ret, retries = 0;
 	struct page *page;
 	pgoff_t index;
-	unsigned from, to;
+	unsigned from;
+    __attribute__((unused)) unsigned to;
 	struct inode *inode = mapping->host;
 	handle_t *handle;
 
@@ -4896,7 +4897,7 @@ static int ext4_expand_extra_isize(struct inode *inode,
 {
 	struct ext4_inode *raw_inode;
 	struct ext4_xattr_ibody_header *header;
-	struct ext4_xattr_entry *entry;
+	__attribute__((unused)) struct ext4_xattr_entry *entry;
 
 	if (EXT4_I(inode)->i_extra_isize >= new_extra_isize)
 		return 0;

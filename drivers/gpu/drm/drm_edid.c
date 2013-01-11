@@ -253,7 +253,8 @@ struct drm_display_mode *drm_mode_std(struct drm_device *dev,
 				      struct std_timing *t)
 {
 	struct drm_display_mode *mode;
-	int hsize = t->hsize * 8 + 248, vsize;
+	int hsize = t->hsize * 8 + 248;
+    __attribute__((unused)) int vsize;
 
 	mode = drm_mode_create(dev);
 	if (!mode)
