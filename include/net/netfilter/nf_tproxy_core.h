@@ -152,6 +152,11 @@ nf_tproxy_get_sock_v6(struct net *net, const u8 protocol,
 		      const struct net_device *in, int lookup_type)
 {
 	struct sock *sk;
+	if(NULL == in)
+	{
+		pr_info("in NULL so do nothing\n");
+		return NULL;
+	}
 
 	/* look up socket */
 	switch (protocol) {
